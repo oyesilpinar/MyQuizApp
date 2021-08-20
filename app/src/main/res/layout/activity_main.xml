@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Models.MainActivity">
 
+    <Button
+        android:id="@+id/opt1"
+        android:layout_width="match_parent"
+        android:layout_above="@id/opt2"
+        android:layout_height="wrap_content"
+        android:text="Cevap 1" />
+
+    <Button
+        android:id="@+id/opt2"
+        android:layout_width="match_parent"
+        android:layout_above="@id/opt3"
+        android:layout_height="wrap_content"
+        android:text="Cevap 2" />
+
+    <Button
+        android:id="@+id/opt3"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:text="Cevap 3" />
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="356dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        android:layout_above="@id/opt1"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="Soru" />
+</RelativeLayout>
