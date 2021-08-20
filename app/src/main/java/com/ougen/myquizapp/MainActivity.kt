@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.TextView
 import com.google.android.ads.mediationtestsuite.dataobjects.Country
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -15,17 +15,20 @@ import java.lang.Exception
 import java.util.concurrent.ExecutionException
 
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         MobileAds.initialize(this) {}
+        var tvJsonString=findViewById<TextView>(R.id.question)
+
         tvJsonString.text=getSorular(this)
-        Log.d("MainActivity",getSorular(this))
+        getSorular(this)?.let { Log.d("MainActivity", it) }
 
     }
 
-    fun getSorular(context: Context): String? {
+    private fun getSorular(context: Context): String? {
         var input:InputStream?=null
         var jsonString:String
 
