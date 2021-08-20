@@ -1,0 +1,41 @@
+{
+    "Sorular":[    
+            {
+        "q" : "Divorce ?",
+        "opt1" : "Affetmek",
+        "opt2" : "Boşanmak",
+        "opt3" : "Durmak",
+        "answer" : "Boşanmak"
+    },
+    {
+        "q" : "Waste ?",
+        "opt1" : "Tat",
+        "opt2" : "Düzen",
+        "opt3" : "Atık",
+        "answer" : "Atık"
+    },
+    {
+        "q" : "Achievement ?",
+        "opt1" : "Başarı",
+        "opt2" : "Deneme",
+        "opt3" : "Zor",
+        "answer" : "Başarı"
+    },
+    {
+        "q" : "Grocery ?",
+        "opt1" : "Market",
+        "opt2" : "Dondurma",
+        "opt3" : "Çatal",
+        "answer" : "Market"
+    },
+    {
+        "q" : "Collect ?",
+        "opt1" : "Yüzmek",
+        "opt2" : "Toplamak",
+        "opt3" : "Vurmak",
+        "answer" : "Toplamak"
+    }
+        ]
+    }
+	
+	
