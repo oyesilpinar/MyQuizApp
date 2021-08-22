@@ -21,16 +21,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         MobileAds.initialize(this) {}
-        var tvJsonString=findViewById<TextView>(R.id.question)
 
+        val tvJsonString=findViewById<TextView>(R.id.question)
         tvJsonString.text=getSorular(this)
-        getSorular(this)?.let { Log.d("MainActivity", it) }
 
+
+        //Jsonu Gson ile parse etmek
+        val quest=Gson().fromJson(getSorular(this),ListQuestion::class.java)
+        Log.d("MainActivity","Size:${quest.questions.size}")
     }
+
+    //Create Model Depends on json
+
 
     private fun getSorular(context: Context): String? {
         var input:InputStream?=null
-        var jsonString:String
+        val jsonString:String
 
         try{
             //Create InputStream
