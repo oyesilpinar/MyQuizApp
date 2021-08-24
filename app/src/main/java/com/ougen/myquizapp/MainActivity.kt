@@ -7,10 +7,19 @@ import android.util.Log
 import android.widget.TextView
 import com.google.android.ads.mediationtestsuite.dataobjects.Country
 import com.google.gson.Gson
+import android.app.Activity
+import android.content.DialogInterface
+import android.content.Intent
+import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.IOException
+import java.io.InputStream
+import java.nio.charset.Charset
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
 import com.google.android.gms.ads.MobileAds
-import java.io.InputStream
 import java.lang.Exception
 import java.util.concurrent.ExecutionException
 
