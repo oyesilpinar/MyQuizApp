@@ -17,6 +17,14 @@ import java.util.concurrent.ExecutionException
 
 
 class MainActivity : AppCompatActivity() {
+
+    private var questionsList: ArrayList<Question> = ArrayList()
+    // store player score
+    private var playerScore = 0
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,12 +37,41 @@ class MainActivity : AppCompatActivity() {
         //Jsonu Gson ile parse etmek
         val quest=Gson().fromJson(getSorular(this),ListQuestion::class.java)
         Log.d("MainActivity","Size:${quest.questions.size}")
+
+
+        var questionArraySize = 0
+        // get all question objects of selected category from json file and store in questionsList
+        try {
+            val obj = JSONObject(loadJSONFromAsset())
+            val questionArray = obj.getJSONArray(.)
+            questionArraySize = questionArray.length()
+            for (i in 0 until questionArray.length()) {
+                val questionJSONObject = questionArray.getJSONObject(i)
+                val question = Question(
+                    q = questionJSONObject.getString("question"),
+                    opt1 = questionJSONObject.getString("opt1"),
+                    opt2 = questionJSONObject.getString("opt2"),
+                    opt3 = questionJSONObject.getString("opt3"),
+                    answer = questionJSONObject.getInt("answer")
+                )
+                questionsList.add(question)
+            }
+        } catch (ex: JSONException) {
+            ex.printStackTrace()
+        }
+
+
+
     }
+
+
+
+
 
     //Create Model Depends on json
 
 
-    private fun getSorular(context: Context): String? {
+      private fun getSorular(context: Context): String? {
         var input:InputStream?=null
         val jsonString:String
 
@@ -65,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
         return null
 
-    }
+      }
 
 
 
